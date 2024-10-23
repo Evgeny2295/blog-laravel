@@ -19,12 +19,14 @@
     <div class="container">
         <div class="header-content">
             <div class="header-content__logo">
-                <a href={{route('main.index')}}>
-                    <img class="header-content__logo-img" src="{{asset('assets/images/logo-news.png')}}" alt="">
+                <a href="{{route('main.index')}}" class="header-content__logo-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0,0,256,256">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(3.2,3.2)"><path d="M42.471,77.5c3.56,-1.682 6.029,-5.308 6.029,-9.5v-57.5h27v57.5c0,5.238 -4.262,9.5 -9.5,9.5z" fill="#c97412"></path><path d="M75,11v57c0,4.963 -4.037,9 -9,9h-21.682c2.83,-1.992 4.682,-5.284 4.682,-9v-57h26M76,10h-28v58c0,5.523 -4.477,10 -10,10h28c5.523,0 10,-4.477 10,-10v-58z" fill="#788b9c"></path><path d="M13,77.5c-5.238,0 -9.5,-4.262 -9.5,-9.5v-65.5h53v65.5c0,5.07 3.993,9.226 9,9.487v0.013z" fill="#ffffff"></path><path d="M56,3v65c0,3.953 2.306,7.378 5.643,9h-48.643c-4.963,0 -9,-4.037 -9,-9v-65h52M57,2h-54v66c0,5.523 4.477,10 10,10h53v-1c-4.971,0 -9,-4.029 -9,-9v-66z" fill="#788b9c"></path><path d="M13,12h34v4h-34zM13,24h14v1h-14zM13,30h14v1h-14zM13,36h14v1h-14zM13,42h14v1h-14zM13,48h14v1h-14zM13,54h14v1h-14zM13,60h14v1h-14zM13,66h14v1h-14zM57,22h11v1h-11zM57,28h11v1h-11zM57,34h11v1h-11zM57,40h11v1h-11zM57,46h11v1h-11zM57,52h11v1h-11zM57,58h11v1h-11zM57,64h11v1h-11zM33,24h14v1h-14zM33,30h14v1h-14zM33,36h14v1h-14zM33,42h14v1h-14zM33,48h14v1h-14zM33,54h14v1h-14zM33,60h14v1h-14zM33,66h14v1h-14z" fill="#788b9c"></path></g></g>
+                    </svg>
                 </a>
             </div>
-            <ul class="header-content__list">
-                <li class="header-content__item">
+            <ul class="header-content__nav-list">
+                <li class="header-content__nav-item">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle bg-transparent header__menu-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Категории
@@ -32,42 +34,45 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             @foreach($categories as $category)
                                 <li>
-                                    <a class="dropdown-item" class="header__menu-link" href="{{route('category.posts.show',$category->id)}}">{{$category->title}}</a>
+                                    <a class="dropdown-item" href="{{route('category.posts.show',$category->id)}}">{{$category->title}}</a>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 </li>
-                <li class="header-content__item">
-                    <a class="header-content__link" href="#">Свежие новости</a>
+                <li class="header-content__nav-item">
+                    <a class="header-content__nav-link" href="#">Свежие новости</a>
                 </li>
-                <li class="header-content__item">
+                <li class="header-content__nav-item">
+                    <a class="header-content__nav-link" href="#">О нас</a>
+                </li>
+                <li class="header-content__nav-item">
+                    <a class="header-content__nav-link" href="#">Контакты</a>
+                </li>
+            </ul>
+            <ul class="header-content__search-personal">
+                <li class="header-content__search-personal-item">
+                    <a href="" class="header-content__search-personal-link"><i class="fas fa-search"></i></a>
+                </li>
+                <li class="header-content__search-personal-item">
                     @auth()
-                        <a href="{{route('personal.main.index')}}" class="header__menu-link"><i class="fas fa-user"></i> {{auth()->user()->name}}</a>
+                        <a href="{{route('personal.main.index')}}" class="header-content__search-personal-link"><i class="fas fa-user"></i> {{auth()->user()->name}}</a>
                 @endauth
                 @guest()
-                    <li class="header__menu-item">
+                    <li class="header-content__search-personal-item">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle bg-transparent header__menu-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user"></i>
                             </button>
                             <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton1">
-                                <a href="{{route('personal.login.index')}}" class="header__menu-link">Войти</a>
-                                <a href="{{route('personal.register.index')}}" class="header__menu-link">Зарегистрироваться</a>
+                                <a href="{{route('personal.login.index')}}" class="header-content__search-personal-link--black">Войти</a>
+                                <a href="{{route('personal.register.index')}}" class="header-content__search-personal-link--black">Зарегистрироваться</a>
                             </ul>
                         </div>
                     </li>
                     @endguest
-                </li>
+                    </li>
             </ul>
-            <div class="header-content__contact">
-                <li class="header-content__item">
-                    <a class="header-content__link" href="#">О нас</a>
-                </li>
-                <li class="header-content__item">
-                    <a class="header-content__link" href="#">Контакты</a>
-                </li>
-            </div>
         </div>
     </div>
 </header>
@@ -76,21 +81,21 @@
 
 <footer id="footer">
     <div class="container">
-        <div class='footer__info'>
-            <div class="footer__contact">
-                <p class="footer__contact-email">eeeee@mail.ru</p>
-                <p class="footer__contact-number">8-900-900-00-00</p>
-                <div>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
-                </div>
+        <div class="footer__info">
+            <div>
+                <p class="footer__info-item footer__info-email">eeeee@mail.ru</p>
+                <p class="footer__info-item footer__info-number">8-900-900-00-00</p>
+                <p class="footer__info-item footer__info-number">8-900-800-11-11</p>
             </div>
-            <div class="footer__menu">
-                    <a href="" class="footer__menu-link">Свежие новости</a>
-                    <a href="" class="footer__menu-link">Контакты</a>
-                    <a href="" class="footer__menu-link">О нас</a>
+            <div>
+                <a href="" class="footer__info-item footer__info-link"><i class="fab fa-vk"></i></a>
+                <a href="" class="footer__info-item footer__info-link"><i class="fab fa-facebook-square"></i></a>
+                <a href="" class="footer__info-item footer__info-link"><i class="fab fa-odnoklassniki-square"></i></a>
+            </div>
+            <div>
+                <a href="" class="footer__info-item footer__info-link">Свежие новости</a>
+                <a href="" class="footer__info-item footer__info-link">Контакты</a>
+                <a href="" class="footer__info-item footer__info-link">О нас</a>
             </div>
         </div>
 
