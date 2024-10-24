@@ -15,6 +15,7 @@ use App\Http\Controllers\Post\ShowController;
 */
 
 Route::get('/',[IndexController::class,'index'])->name('main.index');
+Route::get('/search',[\App\Http\Controllers\Search\IndexController::class,'index'])->name('search.index');
 Route::get('/category/{category}/posts',[\App\Http\Controllers\Category\Post\ShowController::class,'show'])->name('category.posts.show');
 Route::prefix('post')->group(function(){
     Route::get('/{post}',[ShowController::class,'show'])->name('post.show');

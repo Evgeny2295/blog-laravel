@@ -75,9 +75,7 @@ a{
     align-items: center;
     margin:0;
 }
-.header-content__item{
-    list-style: none;
-}
+
 .header-content__search-personal{
     display: flex;
     margin:0;
@@ -93,6 +91,7 @@ a{
 .header-content__search-personal-link
 {
     color:#FFFFFF;
+    font-size: 20px;
     transition: font-size 0.7s ease;
 }
 .header-content__nav-link:hover,
@@ -105,6 +104,49 @@ a{
 .header-content__search-personal-link--black{
     color:#000000;
 }
+.header__search{
+    position: relative;
+}
+.header__search-input{
+   padding: 4px 8px;
+    outline: none;
+}
+.header__search-icon,
+.header__search-btn,
+.header__search-close
+{
+    border:none;
+    background-color: transparent;
+    text-align: center;
+    vertical-align: center;
+
+}
+.fa-search{
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+.fa-times{
+    color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+.header-content__search-personal{
+    padding:0;
+    position: relative;
+}
+.header__search-form{
+    position: absolute;
+
+
+}
+.header__search-form{
+    position: absolute;
+    white-space: nowrap;
+    display: none;
+    right:-30px;
+    top:-15px;
+}
 
 
 /*MAIN*/
@@ -116,6 +158,10 @@ a{
     border-radius: 40px;
 }
 .main__content{
+    width:100%;
+    height: 100%;
+}
+.main__content-block{
     display: flex;
     gap:50px;
     justify-content: space-between;
@@ -132,7 +178,11 @@ a{
 .main__one-post-category-title{
     padding:10px 0;
 }
-
+.main__one-post-info{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .main__one-post-title{
     font-weight: 700;
     color: #4c4d4c;
@@ -153,6 +203,10 @@ a{
 .main__liked-posts img{
    width: 400px;
 }
+.main__one-post-img{
+    width: 100%;
+    margin:0 auto;
+}
 .main__one-liked-post-title{
     font-size: 18px;
     font-weight: 500;
@@ -161,6 +215,11 @@ a{
 }
 .main__posts-pagination{
     margin:0 auto;
+}
+.main__content-no-search{
+
+    color:#4c4d4c;
+    text-align: center;
 }
 
 

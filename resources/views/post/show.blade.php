@@ -7,7 +7,7 @@
             <div class="main__one-post-center">
                 <p class="main__post-date">{{$date->translatedFormat('F')}} {{$date->day}}, {{$date->year}} • {{$date->format('H:i')}} • Featured • {{$post->comments->count()}} комментария(-ий)</p>
                 <div class="main__one-post">
-                    <img src="{{url('storage/'.$post->main_image)}}" alt="blog post">
+                    <img class="main__one-post-img" src="{{url('storage/'.$post->main_image)}}" alt="blog post">
                     <div class="main__one-post-info">
                         <p class="main__one-post-category-title">Категория:{{mb_strtolower($post->category->title)}}</p>
                         <div class="main__one-post-like">

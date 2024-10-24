@@ -51,8 +51,15 @@
                 </li>
             </ul>
             <ul class="header-content__search-personal">
-                <li class="header-content__search-personal-item">
-                    <a href="" class="header-content__search-personal-link"><i class="fas fa-search"></i></a>
+                <li class="header__search">
+                    <button class="header__search-icon" onclick="search()"><i class="fas fa-search"></i></button>
+                    <div class="header__search-form" >
+                        <form action="{{route('search.index')}}" >
+                            <input class="header__search-input" type="text" name="s" placeholder="Поиск">
+                            <button type="button" class="header__search-close" onclick="search()"><i class="fas fa-times"></i></button>
+                            <button type="submit" class="header__search-btn"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
                 </li>
                 <li class="header-content__search-personal-item">
                     @auth()
