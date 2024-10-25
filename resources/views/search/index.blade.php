@@ -64,8 +64,6 @@
                                         @endforeach()
                                     </ul>
                                 @endforeach
-                                <img src="" alt="">
-                                <p class="main__liked-posts-title"></p>
                             </div>
                         </div>
 

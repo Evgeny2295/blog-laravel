@@ -5,7 +5,7 @@
         <div class="container">
             <div class="main">
                 <h1 class="title main__title">Новости на тему: {{mb_strtolower($category->title)}}</h1>
-                <div class="main__content">
+                <div class="main__content main__content-block">
                     <div>
                         <div class="main__posts">
                             @foreach($posts as $post)
